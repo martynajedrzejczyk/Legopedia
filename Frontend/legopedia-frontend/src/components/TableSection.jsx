@@ -10,6 +10,10 @@ const TableSection = () => {
 
     return (
         <div className="table-container">
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+            />
             <div className="table-buttons">
                 <button>PARTS</button>
                 <button>SETS</button>
@@ -20,7 +24,7 @@ const TableSection = () => {
                         <th>Part Number</th>
                         <th>Part Name</th>
                         <th>Category</th>
-                        <th> </th>
+                        <th className="th-options"> </th>
                     </tr>
                 ) : (
                     <tr>
@@ -29,6 +33,7 @@ const TableSection = () => {
                         <th>Year</th>
                         <th>Number of parts</th>
                         <th>Theme</th>
+                        <th className="th-options"> </th>
                     </tr>
                 )}
                 {option === "parts"
@@ -37,6 +42,14 @@ const TableSection = () => {
                               <td>{part.part_num}</td>
                               <td>{part.name}</td>
                               <td>{part.category}</td>
+                              <td className="td-options">
+                                  <span class="material-symbols-outlined">
+                                      edit
+                                  </span>
+                                  <span class="material-symbols-outlined">
+                                      delete
+                                  </span>
+                              </td>
                           </tr>
                       ))
                     : sets.map((set) => (
@@ -46,9 +59,20 @@ const TableSection = () => {
                               <td>{set.year}</td>
                               <td>{set.num_parts}</td>
                               <td>{set.theme_id}</td>
+                              <td className="td-options">
+                                  <span class="material-symbols-outlined">
+                                      edit
+                                  </span>
+                                  <span class="material-symbols-outlined">
+                                      delete
+                                  </span>
+                              </td>
                           </tr>
                       ))}
             </table>
+            <button className="add-button">
+                <span class="material-symbols-outlined">add</span>
+            </button>
         </div>
     );
 };
